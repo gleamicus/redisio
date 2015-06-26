@@ -15,5 +15,8 @@ end script
 respawn
 respawn limit 10 30
 
-exec su -s /bin/sh -c 'exec "$0" "$@"' <%= @user %> <%= File.join(@bin_path, 'redis-server') %> <%= @configdir %>/<%= @name %>.conf
+setuid <%= @user %>
+setgid <%= @group %>
+
+exec <%= File.join(@bin_path, 'redis-server') %> <%= @configdir %>/<%= @name %>.conf
 
