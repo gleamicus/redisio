@@ -174,6 +174,7 @@ def configure
           :configdir => current['configdir'],
           :piddir => piddir,
           :platform => node['platform'],
+          :port => current['sentinel_port']
           })
         only_if { node['redisio']['job_control'] == 'initd' }
       end
@@ -193,6 +194,7 @@ def configure
           :configdir => current['configdir'],
           :piddir => piddir,
           :platform => node['platform'],
+          :port => current['sentinel_port']
           })
         only_if { node['redisio']['job_control'] == 'upstart' }
       end
